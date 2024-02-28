@@ -1,8 +1,0 @@
-Ping writing - string  ::  28-02-2024 13:05:48
-Ping writing - string  ::  28-02-2024 13:06:37
-Ping writing - string  ::  28-02-2024 13:10:53
-Ping writing - System.Threading.Tasks.Task`1[System.String]  ::  28-02-2024 13:18:43
-Ping writing -   ::  28-02-2024 13:22:17
-Ping writing - string  ::  28-02-2024 15:14:37
-Ping writing - string  ::  28-02-2024 15:17:27
-Ping writing - string  ::  28-02-2024 15:19:02
