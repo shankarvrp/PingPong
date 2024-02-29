@@ -4,4 +4,6 @@ WORKDIR /app
 ARG APP_ENV=Debug
 
 COPY bin/$APP_ENV/net8.0 .
-ENTRYPOINT ["dotnet", "PongAPI.dll"]
+ENTRYPOINT ["dotnet", "PingAPI.dll"]
+
+

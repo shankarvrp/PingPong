@@ -8,12 +8,18 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PongAPI", "PongAPI\PongAPI.csproj", "{FF0BF2E2-7868-46A2-9DD7-B942563AE2AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{160DC915-1151-4DF3-BC06-BF37EDE5ECCC}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\ping.deploy.yaml = k8s\ping.deploy.yaml
+		k8s\ping.service.yaml = k8s\ping.service.yaml
+		k8s\pong.deploy.yaml = k8s\pong.deploy.yaml
+		k8s\pong.service.yaml = k8s\pong.service.yaml
+		k8s\pvc-fileshare.yaml = k8s\pvc-fileshare.yaml
+	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{066644E0-FA1A-42D1-B83C-3AF362AAC138}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{066644E0-FA1A-42D1-B83C-3AF362AAC138}"
 	ProjectSection(SolutionItems) = preProject
 		docker\docker-Scripts.txt = docker\docker-Scripts.txt
-		docker\Dockerfile.ping = docker\Dockerfile.ping
-		docker\Dockerfile.pong = docker\Dockerfile.pong
+		k8s\K8s-Scripts.txt = k8s\K8s-Scripts.txt
 	EndProjectSection
 EndProject
 Global

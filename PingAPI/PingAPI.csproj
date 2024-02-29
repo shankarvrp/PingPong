@@ -16,8 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Publish\Dev\" />
-    <Folder Include="Publish\Prod\" />
     <Folder Include="Share\" />
   </ItemGroup>
 
