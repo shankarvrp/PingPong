@@ -34,15 +34,17 @@ app.MapPost("/send", async (ILogger logger, [FromBody]string data, IHttpClientFa
 {
     string dataToWrite = data;
 
+    // Query the Pong endpoint to get data back
     var httpClient = httpFactory.CreateClient("PongClient");
     var httpResponse = await httpClient.PostAsync("/send", new StringContent(dataToWrite, Encoding.UTF8, "text/plain"));
     var pongResponse = await httpResponse.Content.ReadAsStringAsync();
 
+    // Write to the shared data file
     var appPath = builder.Environment.ContentRootPath;
     var dataPath = Path.Combine(appPath, "data/data.txt");
-
     System.IO.File.AppendAllLines(dataPath, new string[] { dataToWrite + "  ::  " + DateTime.Now.ToString() });
 
+    // Form the final response
     var finalResponse = "Ping response - " + pongResponse;
     logger.Information(finalResponse);
 
