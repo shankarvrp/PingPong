@@ -8,25 +8,28 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add logging 
 builder.Logging.ClearProviders();
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
+// Get the Pong API URL
 var pongAPI = builder.Configuration.GetValue<string>("PongAPIURL");
 builder.Services.AddHttpClient("PongClient", c => { c.BaseAddress = new Uri(pongAPI); });
 
 var app = builder.Build();
 
+// Default Ping endpoint
 app.MapGet("/", (ILogger logger) =>
 {
     logger.Information("Ping's ping!");
     return "Ping live!";
 });
 
+// Send endpoint that posts to Pong and sends some data back 
 app.MapPost("/send", async (ILogger logger, [FromBody]string data, IHttpClientFactory httpFactory) =>
 {
     string dataToWrite = data;
@@ -54,13 +57,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Using Request Logging as well
 app.UseSerilogRequestLogging();
-
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
 
 

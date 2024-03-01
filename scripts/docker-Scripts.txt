@@ -1,7 +1,7 @@
 
 
 # Clean images & containers
-docker rm -vf $(docker ps -aq)
+docker rm -f $(docker ps -aq)
 docker rmi -f $(docker images -aq)
 
 # Docker Build
