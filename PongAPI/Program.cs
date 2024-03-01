@@ -28,10 +28,14 @@ app.MapGet("/", (ILogger logger) =>
 
 app.MapPost("/send", async  (ILogger logger, HttpRequest request) =>
 {
-    var memStream = new MemoryStream();
-    await request.Body.CopyToAsync(memStream);
-    memStream.Seek(0, SeekOrigin.Begin);
-    var dataToWrite = await new StreamReader(memStream).ReadToEndAsync();
+    var dataToWrite = string.Empty;
+
+    using (var memStream = new MemoryStream())
+    {
+        await request.Body.CopyToAsync(memStream);
+        memStream.Seek(0, SeekOrigin.Begin);
+        dataToWrite = await new StreamReader(memStream).ReadToEndAsync();
+    }
 
     dataToWrite = "Pong response - " + dataToWrite    ;
     logger.Information(dataToWrite);
