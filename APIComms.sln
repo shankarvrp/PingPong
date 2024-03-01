@@ -18,8 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{160DC915-115
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{066644E0-FA1A-42D1-B83C-3AF362AAC138}"
 	ProjectSection(SolutionItems) = preProject
-		docker\docker-Scripts.txt = docker\docker-Scripts.txt
-		k8s\K8s-Scripts.txt = k8s\K8s-Scripts.txt
+		scripts\docker-Scripts.txt = scripts\docker-Scripts.txt
+		scripts\K8s-Scripts.txt = scripts\K8s-Scripts.txt
 	EndProjectSection
 EndProject
 Global
